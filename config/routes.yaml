@@ -7,5 +7,13 @@
 # To list all registered routes, run the following command:
 #   bin/console debug:router
 
-controllers:
-    resource: routing.controllers
+admin_controllers:
+    resource: "../src/Controller/Admin/*"
+    type: "attribute"
+    prefix: '/admin'
+    name_prefix: 'app_admin_'
+
+front_controller:
+    resource: "../src/Controller/Front/*"
+    type: "attribute"
+    name_prefix: "app_"

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        {% block stylesheets %}
+            {{ vite_entry_link_tags('front') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ vite_entry_script_tags('front') }}
+        {% endblock %}
+    </head>
+    <body class="font-manrope antialiased bg-stone-50 text-gray-800">
+        <header class="w-dvw">
+            {% block navbar %}
+                <nav class="border-b border-nordic-green shadow h-14 flex items-center px-4">
+                    <div class="flex items-center gap-3">
+                        <div class="text-3xl font-sora font-bold text-nordic-green">Ø</div>
+                        <div class="text-xl font-sora font-bold text-nordic-green hidden sm:block">Orlog</div>
+                    </div>
+                </nav>
+            {% endblock %}
+        </header>
+
+        <main class="min-h-screen">
+            {% block body %}{% endblock %}
+        </main>
+
+        <footer class="border-t border-gray-200 py-6 text-center text-sm text-gray-500">
+            {% block footer %}
+                <p>&copy; 2026 Orlog. <a href="/mentions-legales" class="hover:text-nordic-green transition-colors">Mentions légales</a></p>
+            {% endblock %}
+        </footer>
+    </body>
+</html>
