@@ -2,6 +2,8 @@
 @import "tailwindcss";
 @import "./front/animation.css";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
     --background: oklch(0.9842 0.0080 98.8765);
     --foreground: oklch(0.3556 0.0389 95.7884);
@@ -166,4 +168,34 @@
     --shadow-2xl: var(--shadow-2xl);
 }
 
+@layer components {
+    .card{
+        &:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-nordic-green) 0%, var(--color-bronze) 100%);
+        }
+        @apply px-8 py-8 rounded-lg shadow-md relative;
+    }
+
+    .form-input{
+        @apply border border-ring rounded-md focus:ring-accent focus:border-accent block w-full px-2.5 py-2 shadow-xs placeholder:text-base;
+    }
+}
+
+@layer utilities {
+
+
+    .fadeOut{
+        animation: fade-out .75s;
+    }
+
+    .fadeIn{
+        animation: fade-in .75s;
+    }
+}
 
