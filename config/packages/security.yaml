@@ -27,6 +27,8 @@ security:
                 login_path: app_login
                 check_route: app_login_check
                 signature_properties: [ 'id' ]
+                default_target_path: "/"
+                always_use_default_target_path: true
 
             # Activate different ways to authenticate:
             # https://symfony.com/doc/current/security.html#the-firewall

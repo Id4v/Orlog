@@ -2,12 +2,49 @@
 
 {% block body %}
     <div class="h-dvh w-dvw flex items-center justify-center">
-        <div class="card shadow w-[450px] h-[400px] flex flex-col items-center justify-between animate-in fade-in duration-400">
-            <h1 class="text-2xl py-4 text-nordic-green font-bold">Connectez-vous</h1>
-            <form action="" method="post" class="flex-col justify-between grow contents">
-                <input type="email" name="email" placeholder="Email address" autofocus required autocomplete="email" class="form-input">
-                <input type="submit" value="Connexion" class="px-6 py-4 bg-nordic-green text-white">
+        <div class="card shadow w-[450px] flex flex-col items-center p-8 animate-in fade-in duration-400">
+            <!-- Logo -->
+            <div class="text-center mb-6">
+                <span class="text-5xl font-bold text-nordic-green">Ø</span>
+                <h1 class="text-2xl font-bold text-foreground mt-2">Connexion</h1>
+                <p class="text-sm text-foreground/85 mt-1">Entrez votre email pour recevoir un lien de connexion</p>
+            </div>
+
+            <!-- Login Form -->
+            <form action="{{ path('app_login') }}" method="post" class="w-full space-y-4">
+                <div>
+                    <label for="email" class="block text-sm font-medium text-foreground mb-1">Adresse email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="vous@exemple.com"
+                        autofocus
+                        required
+                        autocomplete="email"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-nordic-green focus:border-transparent outline-none transition-all duration-200"
+                    >
+                </div>
+
+                <button
+                    type="submit"
+                    class="w-full px-6 py-3 bg-nordic-green text-white rounded-lg font-medium hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-nordic-green transition-all duration-200 flex items-center justify-center"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    Envoyer le lien
+                </button>
             </form>
+
+            <!-- Info -->
+            <div class="mt-6 text-center">
+                <p class="text-xs text-gray-500">
+                    Un lien de connexion sécurisé sera envoyé à votre adresse email.
+                    <br>
+                    Valable pendant 10 minutes.
+                </p>
+            </div>
         </div>
     </div>
 {% endblock %}
